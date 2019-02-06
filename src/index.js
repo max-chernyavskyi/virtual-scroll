@@ -168,8 +168,8 @@ VirtualScroll.prototype._bind = function() {
     if(support.hasPointer && support.hasTouchWin) {
         this.bodyTouchAction = document.body.style.msTouchAction;
         document.body.style.msTouchAction = 'none';
-        this.el.addEventListener('MSPointerDown', this._onTouchStart, true);
-        this.el.addEventListener('MSPointerMove', this._onTouchMove, true);
+        this.el.addEventListener('pointerdown', this._onTouchStart, true);
+        this.el.addEventListener('pointermove', this._onTouchMove, true);
     }
 
     if(support.hasKeyDown) document.addEventListener('keydown', this._onKeyDown);
@@ -186,8 +186,8 @@ VirtualScroll.prototype._unbind = function() {
 
     if(support.hasPointer && support.hasTouchWin) {
         document.body.style.msTouchAction = this.bodyTouchAction;
-        this.el.removeEventListener('MSPointerDown', this._onTouchStart, true);
-        this.el.removeEventListener('MSPointerMove', this._onTouchMove, true);
+        this.el.removeEventListener('pointerdown', this._onTouchStart, true);
+        this.el.removeEventListener('pointermove', this._onTouchMove, true);
     }
 
     if(support.hasKeyDown) document.removeEventListener('keydown', this._onKeyDown);
